@@ -36,3 +36,13 @@ export function showLoader() {
 export function hideLoader() {
   document.querySelector('.loader').classList.add('hidden');
 }
+
+const loadMoreBtn = document.querySelector('#load-more');
+
+export function showLoadMore() {
+  loadMoreBtn.style.display = 'block';
+}
+
+export function hideLoadMore() {
+  loadMoreBtn.style.display = 'none';
+}

@@ -5,6 +5,8 @@ import {
   clearGallery,
   showLoader,
   hideLoader,
+  showLoadMore,
+  hideLoadMore,
 } from './js/render-functions.js';
 
 import iziToast from 'izitoast';
@@ -68,6 +70,7 @@ form.addEventListener('submit', async e => {
 
 loadMoreBtn.addEventListener('click', async () => {
   currentPage += 1;
+  hideLoadMore();
   showLoader();
 
   try {
@@ -85,7 +88,7 @@ loadMoreBtn.addEventListener('click', async () => {
     });
 
     if (currentPage * perPage >= totalHits) {
-      loadMoreBtn.style.display = 'none';
+      showLoadMore();
       iziToast.info({
         title: 'Info',
         message: "We're sorry, but you've reached the end of search results.",
